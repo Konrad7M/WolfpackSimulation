@@ -1,20 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿namespace WolfpackSimulation;
 
-namespace WolfpackSimulation
+public partial class AreaTile : UserControl
 {
-    public partial class AreaTile : UserControl
+    public AreaTile()
     {
-        public AreaTile()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
+
+    public void Draw(PictureBox pictureBox)
+    {
+        indicator.Size = Size;
+        indicator.Location = Location;
+        var g = pictureBox.CreateGraphics();
+        Pen p = new Pen(Color.White);
+        Brush b = new SolidBrush(Color.Black);
+        g.DrawRectangle(p, indicator);
+        g.FillRectangle(b, indicator);
+        ControlPaint.DrawBorder(g, indicator, Color.White, ButtonBorderStyle.Solid);
+    }
+
 }

@@ -1,4 +1,6 @@
-﻿namespace WolfpackSimulation
+﻿using System.Windows.Forms;
+
+namespace WolfpackSimulation
 {
     partial class AreaTile
     {
@@ -29,8 +31,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            SuspendLayout();
+            // 
+            // AreaTile
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Name = "AreaTile";
+            Size = new Size(171, 161);
+            ResumeLayout(false);
         }
 
         #endregion

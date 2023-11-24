@@ -1,8 +1,10 @@
-﻿namespace WolfpackSimulation;
+﻿using System.Drawing.Drawing2D;
+
+namespace WolfpackSimulation;
 
 public partial class Form1 : Form
 {
-    public List<Rectangle> listRec = new List<Rectangle>();
+    public List<AreaTile> listRec = new List<AreaTile>();
     Graphics g;
     public Form1()
     {
@@ -10,23 +12,18 @@ public partial class Form1 : Form
     }
     private void button1_Click_1(object sender, EventArgs e)
     {
-        Rectangle rect = new Rectangle();
-        rect.Size = new Size(5, 5);
-        for (int x = 0; x < 5; x++)
+        AreaTile rect = new AreaTile();
+        rect.Size = new Size(30,30);
+        for (int x = 0; x < 10; x++)
         {
-            rect.X = x * rect.Width;
-            for (int y = 0; y < 5; y++)
+            //rect.X = x * rect.Width;
+            for (int y = 0; y < 10; y++)
             {
-                rect.Y = y * rect.Height;
+                rect.Location = new Point(x * rect.Width, y * rect.Height);
+                //rect.Y = y * rect.Height;
                 listRec.Add(rect);
+                rect.Draw(pictureBox1);
             }
-        }
-
-        foreach (Rectangle rec in listRec)
-        {
-            g = pictureBox1.CreateGraphics();
-            Pen p = new Pen(Color.Blue);
-            g.DrawRectangle(p, rec);
         }
     }
 
@@ -40,13 +37,13 @@ public partial class Form1 : Form
     {
         switch (e.KeyCode)
         {
-            case Keys.D0:
-                ChangeColor(listRec[0], Color.Red);
-                break;
-            case Keys.D1:
-                ChangeColor(listRec[1], Color.Red);
-                break;
-                //..more code to handle all keys..
+            //case Keys.D0:
+            //    ChangeColor(listRec[0], Color.Red);
+            //    break;
+            //case Keys.D1:
+            //    ChangeColor(listRec[1], Color.Red);
+            //    break;
+            //    //..more code to handle all keys..
         }
     }
 
