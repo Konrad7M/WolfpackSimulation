@@ -16,7 +16,7 @@ public partial class AreaTile : UserControl
         Brush b = new SolidBrush(Color.Black);
         g.DrawRectangle(p, indicator);
         g.FillRectangle(b, indicator);
-        ControlPaint.DrawBorder(g, indicator, Color.White, ButtonBorderStyle.Solid);
+        ControlPaint.DrawBorder(g, indicator, Color.DarkGray, ButtonBorderStyle.Solid);
+        ControlPaint.DrawBorder(g, indicator, Color.DarkGray, ButtonBorderStyle.Solid);
     }
-
 }

@@ -38,9 +38,9 @@
             // 
             // button1
             // 
-            button1.Location = new Point(12, 12);
+            button1.Location = new Point(-2, 12);
             button1.Name = "button1";
-            button1.Size = new Size(94, 29);
+            button1.Size = new Size(66, 29);
             button1.TabIndex = 0;
             button1.Text = "start";
             button1.UseVisualStyleBackColor = true;
@@ -48,35 +48,35 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(131, 12);
+            pictureBox1.Location = new Point(70, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(426, 412);
+            pictureBox1.Size = new Size(900, 900);
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
             // button2
             // 
-            button2.Location = new Point(12, 47);
+            button2.Location = new Point(-2, 47);
             button2.Name = "button2";
-            button2.Size = new Size(94, 29);
+            button2.Size = new Size(66, 29);
             button2.TabIndex = 2;
             button2.Text = "stop";
             button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            button3.Location = new Point(12, 82);
+            button3.Location = new Point(-2, 82);
             button3.Name = "button3";
-            button3.Size = new Size(94, 29);
+            button3.Size = new Size(66, 29);
             button3.TabIndex = 3;
             button3.Text = "multi";
             button3.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
-            button4.Location = new Point(12, 117);
+            button4.Location = new Point(-2, 117);
             button4.Name = "button4";
-            button4.Size = new Size(94, 29);
+            button4.Size = new Size(66, 29);
             button4.TabIndex = 4;
             button4.Text = "single";
             button4.UseVisualStyleBackColor = true;
@@ -86,7 +86,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(578, 437);
+            ClientSize = new Size(982, 953);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);

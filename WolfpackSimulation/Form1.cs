@@ -13,11 +13,11 @@ public partial class Form1 : Form
     private void button1_Click_1(object sender, EventArgs e)
     {
         AreaTile rect = new AreaTile();
-        rect.Size = new Size(30,30);
-        for (int x = 0; x < 10; x++)
+        rect.Size = new Size(9, 9);
+        for (int x = 0; x < 100; x++)
         {
             //rect.X = x * rect.Width;
-            for (int y = 0; y < 10; y++)
+            for (int y = 0; y < 100; y++)
             {
                 rect.Location = new Point(x * rect.Width, y * rect.Height);
                 //rect.Y = y * rect.Height;
