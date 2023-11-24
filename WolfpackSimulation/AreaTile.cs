@@ -7,6 +7,9 @@ public partial class AreaTile : UserControl
         InitializeComponent();
     }
 
+    bool preyPresent;
+    public TerritoryData TerritoryData;
+
     public void Draw(PictureBox pictureBox)
     {
         indicator.Size = Size;
@@ -19,4 +22,26 @@ public partial class AreaTile : UserControl
         ControlPaint.DrawBorder(g, indicator, Color.DarkGray, ButtonBorderStyle.Solid);
         ControlPaint.DrawBorder(g, indicator, Color.DarkGray, ButtonBorderStyle.Solid);
     }
+    public void OnUpdate()
+    {
+        if (TerritoryData.scentCoeficient > 0)
+        {
+            TerritoryData.scentCoeficient -= 0.125f;
+            if(TerritoryData.scentCoeficient <= 0)
+            {
+                TerritoryData.scentCoeficient = 0;
+                TerritoryData.packId = -1;
+            }
+        }
+    }
+    public TerritoryData GetTerritoryData()
+    {
+        return TerritoryData;
+    }
+}
+
+public struct TerritoryData
+{
+    public float scentCoeficient;
+    public int packId;
 }
