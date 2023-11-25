@@ -1,6 +1,6 @@
 ﻿namespace WolfpackSimulation
 {
-    partial class Form1
+    partial class SimulationView
     {
         /// <summary>
         /// Required designer variable.
@@ -38,17 +38,17 @@
             // 
             // button1
             // 
-            button1.Location = new Point(-2, 12);
+            button1.Location = new Point(12, 10);
             button1.Name = "button1";
             button1.Size = new Size(66, 29);
             button1.TabIndex = 0;
-            button1.Text = "start";
+            button1.Text = "Start";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_1;
+            button1.Click += StartButton_Click;
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(70, 12);
+            pictureBox1.Location = new Point(84, 10);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(900, 900);
             pictureBox1.TabIndex = 1;
@@ -56,44 +56,45 @@
             // 
             // button2
             // 
-            button2.Location = new Point(-2, 47);
+            button2.Location = new Point(12, 40);
             button2.Name = "button2";
             button2.Size = new Size(66, 29);
             button2.TabIndex = 2;
-            button2.Text = "stop";
+            button2.Text = "Stop";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += StopButton_Click;
             // 
             // button3
             // 
-            button3.Location = new Point(-2, 82);
+            button3.Location = new Point(12, 70);
             button3.Name = "button3";
             button3.Size = new Size(66, 29);
             button3.TabIndex = 3;
-            button3.Text = "multi";
+            button3.Text = "Multi";
             button3.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
-            button4.Location = new Point(-2, 117);
+            button4.Location = new Point(12, 100);
             button4.Name = "button4";
             button4.Size = new Size(66, 29);
             button4.TabIndex = 4;
-            button4.Text = "single";
+            button4.Text = "Single";
             button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            button4.Click += SingleButton_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(982, 953);
+            //AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.None;
+            ClientSize = new Size(1040, 960);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(pictureBox1);
             Controls.Add(button1);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "Wolfpack Simulation";
+            Text = "Wolfpack Simulation";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
