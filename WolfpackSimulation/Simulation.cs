@@ -192,24 +192,46 @@ internal class Simulation
             {
                 while (isRunning)
                 {
-                    GeneratePrey();
-                    await Task.Delay(tick);
+                    try {
+                        GeneratePrey();
+                        await Task.Delay(tick);
+                    }
+                    catch (Exception e)
+                    {
+
+                    }
+                    
                 }
             });
             ScentThread = new Thread(async () =>
             {
                 while (isRunning)
                 {
-                    DecreaseScentIntensity();
-                    await Task.Delay(tick);
+                    try
+                    {
+                        DecreaseScentIntensity();
+                        await Task.Delay(tick+1);
+                    }
+                    catch (Exception e)
+                    {
+
+                    }
+  
                 }
             });
             PackThread = new Thread(async () =>
             {
                 while (isRunning)
                 {
-                    MovePacksTowardsClosestPrey();
-                    await Task.Delay(tick);
+                    try
+                    {
+                        MovePacksTowardsClosestPrey();
+                        await Task.Delay(tick+2);
+                    }
+                    catch (Exception e)
+                    {
+
+                    }
                 }
             });
             PreyThread.Start();
