@@ -56,6 +56,7 @@ internal class Simulation
     private Thread PreyThread;
     private Thread ScentThread;
     private Thread PackThread;
+    int tick = 50;
 
 
     public Simulation(int size)
@@ -192,7 +193,7 @@ internal class Simulation
                 while (isRunning)
                 {
                     GeneratePrey();
-                    await Task.Delay(250);
+                    await Task.Delay(tick);
                 }
             });
             ScentThread = new Thread(async () =>
@@ -200,7 +201,7 @@ internal class Simulation
                 while (isRunning)
                 {
                     DecreaseScentIntensity();
-                    await Task.Delay(250);
+                    await Task.Delay(tick);
                 }
             });
             PackThread = new Thread(async () =>
@@ -208,7 +209,7 @@ internal class Simulation
                 while (isRunning)
                 {
                     MovePacksTowardsClosestPrey();
-                    await Task.Delay(250);
+                    await Task.Delay(tick);
                 }
             });
             PreyThread.Start();
@@ -220,7 +221,7 @@ internal class Simulation
             while (isRunning)
             {
                 Update();
-                await Task.Delay(250);
+                await Task.Delay(tick);
             }
         }
     }
