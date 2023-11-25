@@ -53,6 +53,10 @@ internal class Simulation
     private const int MaxPrey = 10;
     private const int MaxPacks = 3;
     private readonly Random random = new();
+    private Thread PreyThread;
+    private Thread ScentThread;
+    private Thread PackThread;
+
 
     public Simulation(int size)
     {
@@ -181,10 +185,43 @@ internal class Simulation
 
     private async Task Simulate()
     {
-        while (isRunning)
+        if (useThreads)
         {
-            Update();
-            await Task.Delay(250);
+            PreyThread = new Thread(async () =>
+            {
+                while (isRunning)
+                {
+                    GeneratePrey();
+                    await Task.Delay(250);
+                }
+            });
+            ScentThread = new Thread(async () =>
+            {
+                while (isRunning)
+                {
+                    DecreaseScentIntensity();
+                    await Task.Delay(250);
+                }
+            });
+            PackThread = new Thread(async () =>
+            {
+                while (isRunning)
+                {
+                    MovePacksTowardsClosestPrey();
+                    await Task.Delay(250);
+                }
+            });
+            PreyThread.Start();
+            ScentThread.Start();
+            PackThread.Start();
+        }
+        else
+        {
+            while (isRunning)
+            {
+                Update();
+                await Task.Delay(250);
+            }
         }
     }
 
