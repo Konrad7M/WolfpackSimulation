@@ -31,15 +31,15 @@ namespace WolfpackSimulation
         /// </summary>
         private void InitializeComponent()
         {
-            SuspendLayout();
+            //SuspendLayout();
             // 
             // AreaTile
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            Name = "AreaTile";
-            Size = new Size(171, 161);
-            ResumeLayout(false);
+            //AutoScaleDimensions = new SizeF(8F, 20F);
+            //AutoScaleMode = AutoScaleMode.Font;
+            //Name = "AreaTile";
+            //Size = new Size(171, 161);
+            //ResumeLayout(false);
         }
 
         #endregion

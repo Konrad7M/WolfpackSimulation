@@ -2,46 +2,30 @@
 
 public partial class AreaTile : UserControl
 {
-    public AreaTile()
+    public AreaTile(PictureBox pictureBox)
     {
         InitializeComponent();
+        targetPictureBox = pictureBox;
     }
 
-    bool preyPresent;
-    public TerritoryData TerritoryData;
+    private readonly PictureBox targetPictureBox;
 
-    public void Draw(PictureBox pictureBox)
+    public void Draw(TileContent tileContent = TileContent.Nothing)
     {
+        var targetColor = tileContent switch
+        {
+            TileContent.Nothing => Color.White,
+            TileContent.WolfPack => Color.Blue,
+            TileContent.Prey => Color.Green,
+            TileContent.Scent => Color.Red,
+            _ => Color.White
+        };
+
         indicator.Size = Size;
         indicator.Location = Location;
-        var g = pictureBox.CreateGraphics();
-        Pen p = new Pen(Color.White);
-        Brush b = new SolidBrush(Color.Black);
-        g.DrawRectangle(p, indicator);
+        var g = targetPictureBox.CreateGraphics();
+        var b = new SolidBrush(targetColor);
         g.FillRectangle(b, indicator);
-        ControlPaint.DrawBorder(g, indicator, Color.DarkGray, ButtonBorderStyle.Solid);
-        ControlPaint.DrawBorder(g, indicator, Color.DarkGray, ButtonBorderStyle.Solid);
+        ControlPaint.DrawBorder(g, indicator, Color.Black, ButtonBorderStyle.Solid);
     }
-    public void OnUpdate()
-    {
-        if (TerritoryData.scentCoeficient > 0)
-        {
-            TerritoryData.scentCoeficient -= 0.125f;
-            if(TerritoryData.scentCoeficient <= 0)
-            {
-                TerritoryData.scentCoeficient = 0;
-                TerritoryData.packId = -1;
-            }
-        }
-    }
-    public TerritoryData GetTerritoryData()
-    {
-        return TerritoryData;
-    }
-}
-
-public struct TerritoryData
-{
-    public float scentCoeficient;
-    public int packId;
 }
