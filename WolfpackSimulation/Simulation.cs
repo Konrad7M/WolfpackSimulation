@@ -119,7 +119,7 @@ internal class Simulation
             )
             .FirstOrDefault(prey =>
             {
-                var scentPackId = scents.Find(s => s.x == prey.x && s.y == prey.y)?.packId;
+                var scentPackId = scents.Find(s => s?.x == prey.x && s?.y == prey.y)?.packId;
                 return scentPackId == null || scentPackId == -1 || scentPackId == pack.packId;
             });
 
@@ -172,7 +172,7 @@ internal class Simulation
             .FindAll(
                 tile =>
                     tile.tileContent == TileContent.Scent
-                    && scents.Find(scent => scent.x == tile.x && scent.y == tile.y) == null
+                    && scents.Find(scent => scent?.x == tile.x && scent?.y == tile.y) == null
             )
             .ForEach(tile => tile.tileContent = TileContent.Nothing);
     }
@@ -210,7 +210,7 @@ internal class Simulation
                     try
                     {
                         DecreaseScentIntensity();
-                        await Task.Delay(tick+1);
+                        await Task.Delay(tick);
                     }
                     catch (Exception e)
                     {
@@ -226,7 +226,7 @@ internal class Simulation
                     try
                     {
                         MovePacksTowardsClosestPrey();
-                        await Task.Delay(tick+2);
+                        await Task.Delay(tick);
                     }
                     catch (Exception e)
                     {
