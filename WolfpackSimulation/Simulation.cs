@@ -166,7 +166,7 @@ internal class Simulation
 
     private void DecreaseScentIntensity()
     {
-        scents.ForEach(scent => scent.value -= 0.125f);
+        scents.ForEach(scent => scent.value -= 0.001f);
         scents.RemoveAll(scent => scent.value <= 0);
         tiles
             .FindAll(
