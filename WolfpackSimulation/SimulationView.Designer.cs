@@ -72,6 +72,7 @@
             button3.TabIndex = 3;
             button3.Text = "Multi";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += MultiButton_Click;
             // 
             // button4
             // 

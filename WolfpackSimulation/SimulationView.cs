@@ -60,13 +60,13 @@ public partial class SimulationView : Form
         simulation.isRunning = false;
     }
 
-    private void MultiButton_Click(object sender, EventArgs e)
+    private async void MultiButton_Click(object sender, EventArgs e)
     {
-
+        simulation.useThreads = true;
     }
 
-    private void SingleButton_Click(object sender, EventArgs e)
+    private async void SingleButton_Click(object sender, EventArgs e)
     {
-
+        simulation.useThreads = false;
     }
 }
